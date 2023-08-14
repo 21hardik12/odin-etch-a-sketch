@@ -17,10 +17,14 @@ penColorPicker.addEventListener('input', event => {
     penColor = value;
 });
 
-const eraser = document.getElementById('eraser');
-eraser.addEventListener('click', e => {
-    eraser.classList.toggle('button-enabled');   
+const toggleButtons = document.querySelectorAll('.toggle');
+toggleButtons.forEach(button => {
+    button.addEventListener('click', e => {
+        document.querySelectorAll('.toggle').forEach(b => b.classList.remove('button-enabled'));
+        button.classList.add('button-enabled');
+    });
 });
+
 
 function rgbToHex(rgb) {
     const components = rgb.match(/\d+/g); // Extract RGB components as numbers
