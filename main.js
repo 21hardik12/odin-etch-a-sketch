@@ -17,6 +17,11 @@ penColorPicker.addEventListener('input', event => {
     penColor = value;
 });
 
+const eraser = document.getElementById('eraser');
+eraser.addEventListener('click', e => {
+    eraser.classList.toggle('button-enabled');   
+});
+
 function rgbToHex(rgb) {
     const components = rgb.match(/\d+/g); // Extract RGB components as numbers
     const r = parseInt(components[0]);
@@ -48,7 +53,11 @@ function draw() {
     gridContainer.addEventListener('mousemove', (e) => {
         if (isDrawing) {
             if (e.target.classList.contains('grid-element')) {
-                e.target.style.backgroundColor = penColor;
+                if (!document.getElementById('eraser').classList.contains('button-enabled')) {
+                    e.target.style.backgroundColor = penColor;
+                } else {
+                    e.target.style.backgroundColor = bgColor;
+                }
             }
         }
     });

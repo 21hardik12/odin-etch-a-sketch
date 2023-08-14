@@ -130,3 +130,8 @@ body {
     gap: 1px;
 }
 
+.button-enabled {
+    background-color: #3ea6ff;
+    color: #181818;
+}
+
