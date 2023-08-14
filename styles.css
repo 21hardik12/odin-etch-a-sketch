@@ -1,0 +1,132 @@
+body {
+    background-color: #181818;
+}
+
+.header {    
+    width: auto;
+    font-size: 70px;
+    color: #3ea6ff;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.content {
+    display: flex;
+    margin: 40px 70px;
+    justify-content: space-around;
+}
+
+#grabber {
+    margin-bottom: 25px;
+}
+
+#clear {
+    margin-top: 25px;
+}
+
+.picker {
+    display: flex;
+    height: 40px;
+    width: 250px;
+    justify-content: start;        
+}
+
+.picker-container {
+    margin-bottom: 25px;    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.picker-text {
+    color: #3ea6ff;
+    font-size: medium;
+}
+
+.p-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 40px;
+    background-color: transparent;        
+    border: none;
+    margin-right: 10px;
+    padding: 0px;    
+}
+.p-button::-webkit-color-swatch {    
+    margin: 0px;
+    border: 1px solid #3ea6ff;
+}
+
+/*.p-button {
+    height: 40px;
+    width: 100px;
+    border: 1px solid #3ea6ff;
+    padding: 0px;
+    margin-right: 10px;
+}*/
+
+.plain {
+    background-color:#202020;
+    color: #3ea6ff;
+    font-size: medium;
+    height: 40px;
+    width: 250px;    
+    border: 1px solid #3ea6ff;
+}
+
+.slider-container {
+    margin-top: 25px;
+    height: 40px;
+    width: 250px;
+}
+
+#slider {
+    width: 100%;
+    outline: none;
+    height: 2px;    
+}
+
+#slider-text {
+    margin-top: 5px;
+    text-align: center;
+    font-size: medium;
+    color: #3ea6ff;
+}
+
+.panel {
+    background-color:#202020;    
+    padding: 50px 0px;
+    width: 300px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.grid-container {
+    background-color: #202020;
+    padding: 30px;        
+    width: 600px;
+    height: 600px;
+}
+
+.grid {
+    padding-left: 1px;
+    padding-top: 1px;
+    height: 100%;
+    width: 100%;
+    background-color: #9C9C9C;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.grid-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1px;
+}
+
