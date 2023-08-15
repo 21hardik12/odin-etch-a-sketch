@@ -29,6 +29,15 @@ toggleButtons.forEach(button => {
     });
 });
 
+const colorFillButton = document.querySelector('#fill');
+colorFillButton.addEventListener('click', event => {
+    colorFillButton.classList.toggle('button-enabled');
+});
+
+const colorGrabberButton = document.querySelector('#grabber');
+colorGrabberButton.addEventListener('click', event => {
+    colorGrabberButton.classList.toggle('button-enabled');
+});
 
 function rgbToHex(rgb) {
     const components = rgb.match(/\d+/g); // Extract RGB components as numbers
@@ -44,13 +53,17 @@ bgColorPicker.addEventListener('input', event => {
     const value = bgColorPicker.value;
     prevBgColor = bgColor;
     bgColor = value;
+    fillTheGrid(bgColor, prevBgColor);
+});
+
+function fillTheGrid(color1, color2) {    
     const grid = document.querySelectorAll('.grid-element');    
     grid.forEach(element => {        
-        if (rgbToHex(element.style.backgroundColor) === prevBgColor) {
-            element.style.backgroundColor = bgColor;
+        if (rgbToHex(element.style.backgroundColor) === color2) {
+            element.style.backgroundColor = color1;
         }
-    });
-});
+    });    
+}
 
 function adjustColorShade(hexColor, adjustment) {
     const r = parseInt(hexColor.slice(1, 3), 16);
@@ -81,6 +94,21 @@ function draw() {
                     return;
                 }
                 
+                if (document.getElementById('fill').classList.contains('button-enabled')) {
+                    fillTheGrid(penColor, bgColor);
+                    bgColor = penColor;
+                    document.getElementById('bg-color').value = penColor;
+                    document.getElementById('fill').classList.remove('button-enabled')
+                    return;
+                }
+
+                if (document.getElementById('grabber').classList.contains('button-enabled')) {                    
+                    document.getElementById('pen-color').value = rgbToHex(e.target.style.backgroundColor);
+                    penColor = rgbToHex(e.target.style.backgroundColor);
+                    document.getElementById('grabber').classList.remove('button-enabled');
+                    return;
+                }
+
                 if (document.getElementById('rainbow').classList.contains('button-enabled')) {
                     e.target.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
                     return;
