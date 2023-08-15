@@ -106,28 +106,34 @@ body {
     gap: 10px;
 }
 
-.grid-container {
+.grid-container {    
+    position: relative;
     background-color: #202020;
-    padding: 30px;        
+    padding: 30px 30px;        
     width: 600px;
     height: 600px;
 }
 
 .grid {
+    position: absolute;
     padding-left: 1px;
     padding-top: 1px;
-    height: 100%;
-    width: 100%;
+    height: calc(100% - 60px);
+    width: calc(100% - 60px);
     background-color: #9C9C9C;
     display: flex;
-    flex-direction: column;
-    gap: 1px;
+    flex-direction: column; 
+    gap: 1px;   
 }
 
 .grid-row {
     display: flex;
-    flex-direction: row;
+    flex-direction: row;    
     gap: 1px;
+}
+
+.enable-grid-lines {
+    gap: 0px;
 }
 
 .button-enabled {
@@ -137,5 +143,5 @@ body {
 
 .grid-element {
     user-select: none;
-    -webkit-user-drag: none;
+    -webkit-user-drag: none;    
 }

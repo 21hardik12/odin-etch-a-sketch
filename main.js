@@ -29,14 +29,21 @@ toggleButtons.forEach(button => {
     });
 });
 
-const colorFillButton = document.querySelector('#fill');
-colorFillButton.addEventListener('click', event => {
-    colorFillButton.classList.toggle('button-enabled');
+const switchButtons = document.querySelectorAll('.switch');
+switchButtons.forEach(button => {
+    button.addEventListener('click', e => {
+        if (button.classList.contains('button-enabled')) {
+            button.classList.remove('button-enabled');
+        } else {
+            document.querySelectorAll('.switch').forEach(b => b.classList.remove('button-enabled'));
+            button.classList.toggle('button-enabled');
+        }
+    });
 });
 
-const colorGrabberButton = document.querySelector('#grabber');
-colorGrabberButton.addEventListener('click', event => {
-    colorGrabberButton.classList.toggle('button-enabled');
+const clearButton = document.getElementById('clear');
+clearButton.addEventListener('click', e => {
+    createGrid(sliderValue);    
 });
 
 function rgbToHex(rgb) {
@@ -58,7 +65,7 @@ bgColorPicker.addEventListener('input', event => {
 
 function fillTheGrid(color1, color2) {    
     const grid = document.querySelectorAll('.grid-element');    
-    grid.forEach(element => {        
+    grid.forEach(element => {                
         if (rgbToHex(element.style.backgroundColor) === color2) {
             element.style.backgroundColor = color1;
         }
